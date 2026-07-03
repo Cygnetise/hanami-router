@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "hanami/router/redirect"
-require "hanami/router/block"
+require "hanami2/router/redirect"
+require "hanami2/router/block"
 
 module Hanami2
   class Router

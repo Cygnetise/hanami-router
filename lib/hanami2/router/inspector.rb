@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami/router/formatter/human_friendly"
+require "hanami2/router/formatter/human_friendly"
 
 module Hanami2
   class Router

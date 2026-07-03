@@ -11,8 +11,8 @@ module Hanami2
     # when calling it:
     #
     # ```
-    # require "hanami/router/inspector"
-    # require "hanami/router/formatter/csv"
+    # require "hanami2/router/inspector"
+    # require "hanami2/router/formatter/csv"
     #
     # Hanami2::Router::Inspector.new(
     #   routes: Router.routes,

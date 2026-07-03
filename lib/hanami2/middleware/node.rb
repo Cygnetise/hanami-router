@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami/router/segment"
+require "hanami2/router/segment"
 
 module Hanami2
   module Middleware
