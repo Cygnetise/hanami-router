@@ -5,8 +5,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "hanami/router/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "hanami-router"
-  spec.version       = Hanami::Router::VERSION
+  spec.name          = "hanami2-router"
+  spec.version       = Hanami2::Router::VERSION
   spec.authors       = ["Hanakai team"]
   spec.email         = ["info@hanakai.org"]
   spec.description   = "Rack compatible HTTP router for Ruby"

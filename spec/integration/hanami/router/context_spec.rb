@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Hanami::Router do
+RSpec.describe Hanami2::Router do
   describe "context option" do
     let(:app) { Rack::MockRequest.new(router) }
 

@@ -2,7 +2,7 @@
 
 require "hanami/router/leaf"
 
-module Hanami
+module Hanami2
   class Router
     # Trie node
     #

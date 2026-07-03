@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Hanami::Router do
+RSpec.describe Hanami2::Router do
   describe "with prefix option" do
     subject do
       e = endpoint
@@ -89,7 +89,7 @@ RSpec.describe Hanami::Router do
       env = Rack::MockRequest.env_for("/admin/redirect")
       status, headers, = subject.call(env)
 
-      location_header = Hanami::Router.rack_3? ? headers["location"] : headers["Location"]
+      location_header = Hanami2::Router.rack_3? ? headers["location"] : headers["Location"]
 
       expect(status).to eq(301)
       expect(location_header).to eq("/admin/redirect_destination")

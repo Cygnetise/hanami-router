@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Hanami::Router, "route names" do
+RSpec.describe Hanami2::Router, "route names" do
   let(:handler) { -> (body) { [200, {}, [body]] } }
 
   it "makes a route available by its name" do

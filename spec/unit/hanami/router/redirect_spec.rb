@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-RSpec.describe Hanami::Router do
+RSpec.describe Hanami2::Router do
   describe "#redirect" do
     it "recognizes string endpoint" do
       endpoint = ->(_env) { [200, {}, ["Redirect destination!"]] }
-      router   = Hanami::Router.new do
+      router   = Hanami2::Router.new do
         get "/redirect_destination", to: endpoint, as: :destination
         redirect "/redirect", to: "/redirect_destination"
       end
@@ -13,12 +13,12 @@ RSpec.describe Hanami::Router do
       status, headers, = router.call(env)
 
       expect(status).to eq(301)
-      expect(headers[Hanami::Router::HTTP_HEADER_LOCATION]).to eq("/redirect_destination")
+      expect(headers[Hanami2::Router::HTTP_HEADER_LOCATION]).to eq("/redirect_destination")
     end
 
     it "recognizes string endpoint with custom http code" do
       endpoint = ->(_env) { [200, {}, ["Redirect destination!"]] }
-      router = Hanami::Router.new do
+      router = Hanami2::Router.new do
         get "/redirect_destination", to: endpoint
         redirect "/redirect", to: "/redirect_destination", code: 302
       end
@@ -27,11 +27,11 @@ RSpec.describe Hanami::Router do
       status, headers, = router.call(env)
 
       expect(status).to eq(302)
-      expect(headers[Hanami::Router::HTTP_HEADER_LOCATION]).to eq("/redirect_destination")
+      expect(headers[Hanami2::Router::HTTP_HEADER_LOCATION]).to eq("/redirect_destination")
     end
 
     it "recognizes string endpoint with absolute url" do
-      router = Hanami::Router.new do
+      router = Hanami2::Router.new do
         redirect "/redirect", to: "https://hanamirb.org/"
       end
 
@@ -39,12 +39,12 @@ RSpec.describe Hanami::Router do
       status, headers, = router.call(env)
 
       expect(status).to eq(301)
-      expect(headers[Hanami::Router::HTTP_HEADER_LOCATION]).to eq("https://hanamirb.org/")
+      expect(headers[Hanami2::Router::HTTP_HEADER_LOCATION]).to eq("https://hanamirb.org/")
     end
 
     it "recognizes string endpoint with relative path that start like an absolute url but is not" do
       endpoint = ->(_env) { [200, {}, ["Redirect destination!"]] }
-      router = Hanami::Router.new do
+      router = Hanami2::Router.new do
         get "/http:redirect_destination", to: endpoint, as: :destination
         redirect "/redirect", to: "/http:redirect_destination"
       end
@@ -53,11 +53,11 @@ RSpec.describe Hanami::Router do
       status, headers, = router.call(env)
 
       expect(status).to eq(301)
-      expect(headers[Hanami::Router::HTTP_HEADER_LOCATION]).to eq("/http:redirect_destination")
+      expect(headers[Hanami2::Router::HTTP_HEADER_LOCATION]).to eq("/http:redirect_destination")
     end
 
     it "recognizes URI endpoint" do
-      router = Hanami::Router.new do
+      router = Hanami2::Router.new do
         redirect "/redirect", to: URI("custom://hanamirb.org/1234")
       end
 
@@ -65,7 +65,7 @@ RSpec.describe Hanami::Router do
       status, headers, = router.call(env)
 
       expect(status).to eq(301)
-      expect(headers[Hanami::Router::HTTP_HEADER_LOCATION]).to eq("custom://hanamirb.org/1234")
+      expect(headers[Hanami2::Router::HTTP_HEADER_LOCATION]).to eq("custom://hanamirb.org/1234")
     end
   end
 end

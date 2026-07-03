@@ -2,7 +2,7 @@
 
 require "hanami/router/segment"
 
-module Hanami
+module Hanami2
   module Middleware
     # Trie node to register scopes with custom Rack middleware
     #

@@ -2,7 +2,7 @@
 
 require_relative "node"
 
-module Hanami
+module Hanami2
   module Middleware
     # Trie to register scopes with custom Rack middleware
     #

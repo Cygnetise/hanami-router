@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Hanami
+module Hanami2
   class Router
     class GlobbedPath
       def initialize(http_method, path, to)

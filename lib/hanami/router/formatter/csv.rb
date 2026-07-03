@@ -2,7 +2,7 @@
 
 require "csv"
 
-module Hanami
+module Hanami2
   class Router
     # Renders a CSV representation of the routes
     #
@@ -14,9 +14,9 @@ module Hanami
     # require "hanami/router/inspector"
     # require "hanami/router/formatter/csv"
     #
-    # Hanami::Router::Inspector.new(
+    # Hanami2::Router::Inspector.new(
     #   routes: Router.routes,
-    #   formatter: Hanami::Router::Formatter::CSV.new
+    #   formatter: Hanami2::Router::Formatter::CSV.new
     # ).call(write_headers: false)
     # ```
     #

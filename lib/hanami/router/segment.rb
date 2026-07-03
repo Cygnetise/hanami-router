@@ -2,7 +2,7 @@
 
 require "mustermann/rails"
 
-module Hanami
+module Hanami2
   class Router
     # Route path
     #

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-module Hanami
+module Hanami2
   class Router
     # Represents a result of router path recognition.
     #
-    # @see Hanami::Router#recognize
+    # @see Hanami2::Router#recognize
     #
     # @since 0.5.0
     # @api public
@@ -22,13 +22,13 @@ module Hanami
       #
       # @return [Array] serialized Rack response
       #
-      # @raise [Hanami::Router::NotRoutableEndpointError] if not routable
+      # @raise [Hanami2::Router::NotRoutableEndpointError] if not routable
       #
       # @since 0.5.0
       # @api public
       #
-      # @see Hanami::Router::RecognizedRoute#routable?
-      # @see Hanami::Router::NotRoutableEndpointError
+      # @see Hanami2::Router::RecognizedRoute#routable?
+      # @see Hanami2::Router::NotRoutableEndpointError
       def call(env)
         if routable?
           @endpoint.call(env)

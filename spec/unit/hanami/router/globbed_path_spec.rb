@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Hanami::Router::GlobbedPath do
+RSpec.describe Hanami2::Router::GlobbedPath do
   let(:http_method) { "PUT" }
   let(:path) { Mustermann.new("/api/*any", type: :rails, version: "5.0") }
   let(:to) { double(:endpoint) }

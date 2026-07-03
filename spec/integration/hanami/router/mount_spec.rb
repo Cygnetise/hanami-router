@@ -2,13 +2,13 @@
 
 require "rack/head"
 
-RSpec.describe Hanami::Router do
+RSpec.describe Hanami2::Router do
   let(:router) do
     # Hoist these definitions back into RSpec context to use "rack_headers" helper
     proc_app = ->(*) { [200, rack_headers({"Content-Length" => "4"}), ["proc"]] }
     trailing_app = ->(*) { [200, rack_headers({"Content-Length" => "8"}), ["trailing"]] }
 
-    Hanami::Router.new do
+    Hanami2::Router.new do
       mount Api::App.new,   at: "/api"
       mount Backend::App,   at: "/backend"
       mount proc_app,       at: "/proc"
@@ -67,7 +67,7 @@ RSpec.describe Hanami::Router do
     let(:router) do
       glob_app = ->(*) { [200, rack_headers({"Content-Length" => "4"}), ["home"]] }
 
-      Hanami::Router.new do
+      Hanami2::Router.new do
         mount Api::App.new, at: "/api"
 
         get "/*any", to: glob_app
@@ -83,7 +83,7 @@ RSpec.describe Hanami::Router do
       let(:router) do
         glob_app = ->(*) { [200, rack_headers({"Content-Length" => "4"}), ["home"]] }
 
-        Hanami::Router.new do
+        Hanami2::Router.new do
           get "/home/*any", to: glob_app
 
           mount Api::App.new, at: "/"
@@ -109,12 +109,12 @@ RSpec.describe Hanami::Router do
         [200, rack_headers({"Content-Length" => "9"}), ["/articles"]]
       }
 
-      mounted_router = Hanami::Router.new do
+      mounted_router = Hanami2::Router.new do
         get "/", to: root_endpoint
         get "/articles", to: articles_endpoint
       end
 
-      Hanami::Router.new do
+      Hanami2::Router.new do
         mount mounted_router, at: "/api"
       end
     end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Hanami
+module Hanami2
   class Router
     # Renders a human friendly representation of the routes
     #

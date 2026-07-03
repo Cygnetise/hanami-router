@@ -2,7 +2,7 @@
 
 require "hanami/router/trie"
 
-RSpec.describe Hanami::Router::Trie do
+RSpec.describe Hanami2::Router::Trie do
   describe "#initialize" do
     it "returns an instance of #{described_class}" do
       expect(subject).to be_kind_of(described_class)

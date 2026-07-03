@@ -6,8 +6,8 @@ RSpec.describe "SCRIPT_NAME" do
   include Rack::Test::Methods
 
   before do
-    @container = Hanami::Router.new do
-      @some_test_router = Hanami::Router.new do
+    @container = Hanami2::Router.new do
+      @some_test_router = Hanami2::Router.new do
         get "/foo", to: ->(env) { [200, {}, [::Rack::Request.new(env).url]] }, as: :foo
       end
       mount @some_test_router, at: "/admin"

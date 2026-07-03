@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-RSpec.describe Hanami::Router do
+RSpec.describe Hanami2::Router do
   describe "usage with Rack::ShowExceptions" do
     let(:app) do
-      router  = Hanami::Router.new { get "/", to: ->(*) { 1 / 0 } }
+      router  = Hanami2::Router.new { get "/", to: ->(*) { 1 / 0 } }
       builder = Rack::Builder.new
       builder.use Rack::ShowExceptions
       builder.run router

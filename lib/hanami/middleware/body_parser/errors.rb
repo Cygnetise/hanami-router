@@ -2,7 +2,7 @@
 
 require "hanami/middleware/error"
 
-module Hanami
+module Hanami2
   module Middleware
     # @since 1.3.0
     # @api private
@@ -11,17 +11,17 @@ module Hanami
       # This is raised when parser fails to parse the body
       #
       # @since 1.3.0
-      class BodyParsingError < Hanami::Middleware::Error
+      class BodyParsingError < Hanami2::Middleware::Error
       end
 
       # @since 1.3.0
-      class UnknownParserError < Hanami::Middleware::Error
+      class UnknownParserError < Hanami2::Middleware::Error
         def initialize(name)
           super("Unknown body parser: `#{name.inspect}'")
         end
       end
 
-      class InvalidParserError < Hanami::Middleware::Error
+      class InvalidParserError < Hanami2::Middleware::Error
       end
     end
   end

@@ -5,7 +5,7 @@ module RSpec
     module Rack
       # Given a headers hash, respond with headers compatible with current Rack version
       def rack_headers(headers_hash)
-        if Hanami::Router.rack_3?
+        if Hanami2::Router.rack_3?
           rack_3_headers = ::Rack::Headers.new
 
           headers_hash.each do |k, v|

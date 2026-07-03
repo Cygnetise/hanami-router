@@ -3,7 +3,7 @@
 require "hanami/router/node"
 require "hanami/router/leaf"
 
-RSpec.describe Hanami::Router::Node do
+RSpec.describe Hanami2::Router::Node do
   describe "#initialize" do
     it "returns a #{described_class} instance" do
       expect(subject).to be_kind_of(described_class)
@@ -64,7 +64,7 @@ RSpec.describe Hanami::Router::Node do
           constraints = {}
           subject.put(segment).leaf!(route, to, constraints)
 
-          expect(subject.get(segment).match(route)).to be_kind_of(Hanami::Router::Leaf)
+          expect(subject.get(segment).match(route)).to be_kind_of(Hanami2::Router::Leaf)
         end
       end
     end
@@ -92,7 +92,7 @@ RSpec.describe Hanami::Router::Node do
           path = "/123"
           subject.put(segment).leaf!(route, to, constraints)
 
-          expect(subject.get(segment).match(path)).to be_kind_of(Hanami::Router::Leaf)
+          expect(subject.get(segment).match(path)).to be_kind_of(Hanami2::Router::Leaf)
         end
       end
     end

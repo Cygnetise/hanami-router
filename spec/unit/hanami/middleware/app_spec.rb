@@ -3,10 +3,10 @@
 require "hanami/middleware/app"
 require "rack/mock"
 
-RSpec.describe Hanami::Middleware::App do
+RSpec.describe Hanami2::Middleware::App do
   subject { described_class.new(app, mapping) }
 
-  let(:app) { Hanami::Router.new { root { "OK" } } }
+  let(:app) { Hanami2::Router.new { root { "OK" } } }
   let(:mapping) { {"/" => [], "/admin" => [[authentication, ["arg"], {kwarg: "kwarg"}, nil]]} }
   let(:authentication) do
     Class.new do
@@ -60,7 +60,7 @@ RSpec.describe Hanami::Middleware::App do
     end
 
     context "when app is configured for inspection" do
-      let(:app) { Hanami::Router.new(inspector: inspector) }
+      let(:app) { Hanami2::Router.new(inspector: inspector) }
       let(:inspector) { -> { "routes!" } }
 
       it "returns empty string" do

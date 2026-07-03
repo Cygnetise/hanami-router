@@ -5,7 +5,7 @@ RSpec.describe "Pass on response" do
   let(:routes) do
     # Hoist back into RSpec context to use "rack_headers" helper
     action = ->(*) { [200, rack_headers({"Content-Length" => "2"}), ["OK"]] }
-    Hanami::Router.new { get "/", to: action }
+    Hanami2::Router.new { get "/", to: action }
   end
 
   it "is successful" do

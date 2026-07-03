@@ -2,7 +2,7 @@
 
 require "hanami/router/leaf"
 
-RSpec.describe Hanami::Router::Leaf do
+RSpec.describe Hanami2::Router::Leaf do
   let(:subject)     { described_class.new(route, to, constraints) }
   let(:route)       { "/test/route" }
   let(:to)          { "test proc" }

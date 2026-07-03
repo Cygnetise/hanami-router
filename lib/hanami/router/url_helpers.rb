@@ -4,7 +4,7 @@ require "hanami/router/errors"
 require "mustermann/error"
 require_relative "prefix"
 
-module Hanami
+module Hanami2
   class Router
     # @since 2.0.0
     # @api private

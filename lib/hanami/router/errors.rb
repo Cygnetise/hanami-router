@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module Hanami
+module Hanami2
   class Router
-    # Base class for all Hanami::Router errors.
+    # Base class for all Hanami2::Router errors.
     #
     # @since 0.5.0
     # @api public
@@ -25,8 +25,8 @@ module Hanami
 
     # Error raised when a named route could not be found.
     #
-    # @see Hanami::Router#path
-    # @see Hanami::Router#url
+    # @see Hanami2::Router#path
+    # @see Hanami2::Router#url
     #
     # @since 2.0.0
     # @api public
@@ -40,8 +40,8 @@ module Hanami
 
     # Error raised when variables given for route cannot be expanded into a full path.
     #
-    # @see Hanami::Router#path
-    # @see Hanami::Router#url
+    # @see Hanami2::Router#path
+    # @see Hanami2::Router#url
     #
     # @since 2.0.0
     # @api public
@@ -55,7 +55,7 @@ module Hanami
 
     # Error raised when an unknown HTTP status code is given.
     #
-    # @see Hanami::Router#redirect
+    # @see Hanami2::Router#redirect
     #
     # @since 2.0.0
     # @api public
@@ -69,8 +69,8 @@ module Hanami
 
     # Error raised when a recognized route is called but has no callable endpoint.
     #
-    # @see Hanami::Router#recognize
-    # @see Hanami::Router::RecognizedRoute#call
+    # @see Hanami2::Router#recognize
+    # @see Hanami2::Router::RecognizedRoute#call
     #
     # @since 0.5.0
     # @api public

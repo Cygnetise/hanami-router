@@ -2,7 +2,7 @@
 
 require "rack/mock"
 
-RSpec.describe Hanami::Router do
+RSpec.describe Hanami2::Router do
   describe "block" do
     subject do
       described_class.new do

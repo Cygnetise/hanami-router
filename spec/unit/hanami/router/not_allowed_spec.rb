@@ -2,7 +2,7 @@
 
 require "json"
 
-RSpec.describe Hanami::Router do
+RSpec.describe Hanami2::Router do
   subject do
     described_class.new do
       get "/", to: ->(*) {}

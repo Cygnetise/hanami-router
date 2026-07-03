@@ -2,13 +2,13 @@
 
 require "hanami/router/formatter/csv"
 
-RSpec.describe Hanami::Router::Formatter::CSV do
+RSpec.describe Hanami2::Router::Formatter::CSV do
   let(:headers) { described_class::HEADERS.join(",") }
 
   describe "#call" do
     it "returns a CSV representation of the routes" do
       routes = [
-        Hanami::Router::Route.new(http_method: "GET", path: "/resources/:id", to: "resource#show", as: :resource, constraints: {id: /\d+/})
+        Hanami2::Router::Route.new(http_method: "GET", path: "/resources/:id", to: "resource#show", as: :resource, constraints: {id: /\d+/})
       ]
 
       expected = "GET,/resources/:id,resource#show,:resource,id: /\\d+/"
@@ -21,7 +21,7 @@ RSpec.describe Hanami::Router::Formatter::CSV do
 
     it "can provide generating options" do
       routes = [
-        Hanami::Router::Route.new(http_method: "GET", path: "/", to: "home#index", as: :root, constraints: {})
+        Hanami2::Router::Route.new(http_method: "GET", path: "/", to: "home#index", as: :root, constraints: {})
       ]
 
       rendered_routes = subject.call(routes, col_sep: ";", write_headers: false)
@@ -32,7 +32,7 @@ RSpec.describe Hanami::Router::Formatter::CSV do
 
     it "doesn't include HEAD routes" do
       routes = [
-        Hanami::Router::Route.new(http_method: "HEAD", path: "/resources/:id", to: "resource#show")
+        Hanami2::Router::Route.new(http_method: "HEAD", path: "/resources/:id", to: "resource#show")
       ]
 
       expect(subject.call(routes)).not_to include("resource#show")
@@ -40,7 +40,7 @@ RSpec.describe Hanami::Router::Formatter::CSV do
 
     it "doesn't break when 'as' is not provided" do
       routes = [
-        Hanami::Router::Route.new(http_method: "GET", path: "/resources/:id", to: "resource#show", constraints: {id: /\d+/})
+        Hanami2::Router::Route.new(http_method: "GET", path: "/resources/:id", to: "resource#show", constraints: {id: /\d+/})
       ]
 
       expect { subject.call(routes) }.not_to raise_error
@@ -48,7 +48,7 @@ RSpec.describe Hanami::Router::Formatter::CSV do
 
     it "doesn't break when 'constraints' is not provided" do
       routes = [
-        Hanami::Router::Route.new(http_method: "GET", path: "/resources/:id", to: "resource#show", as: :resource)
+        Hanami2::Router::Route.new(http_method: "GET", path: "/resources/:id", to: "resource#show", as: :resource)
       ]
 
       expect { subject.call(routes) }.not_to raise_error

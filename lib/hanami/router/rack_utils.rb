@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Hanami
+module Hanami2
   class Router
     # @since 2.2.0
     # @api private
