@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami/router/node"
+require "hanami2/router/node"
 
 module Hanami2
   class Router

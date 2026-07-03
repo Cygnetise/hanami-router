@@ -9,20 +9,20 @@ module Hanami2
   #
   # @since 0.1.0
   class Router
-    require "hanami/router/version"
-    require "hanami/router/constants"
-    require "hanami/router/errors"
-    require "hanami/router/segment"
-    require "hanami/router/redirect"
-    require "hanami/router/prefix"
-    require "hanami/router/params"
-    require "hanami/router/trie"
-    require "hanami/router/block"
-    require "hanami/router/route"
-    require "hanami/router/url_helpers"
-    require "hanami/router/globbed_path"
-    require "hanami/router/mounted_path"
-    require "hanami/router/rack_utils"
+    require "hanami2/router/version"
+    require "hanami2/router/constants"
+    require "hanami2/router/errors"
+    require "hanami2/router/segment"
+    require "hanami2/router/redirect"
+    require "hanami2/router/prefix"
+    require "hanami2/router/params"
+    require "hanami2/router/trie"
+    require "hanami2/router/block"
+    require "hanami2/router/route"
+    require "hanami2/router/url_helpers"
+    require "hanami2/router/globbed_path"
+    require "hanami2/router/mounted_path"
+    require "hanami2/router/rack_utils"
 
     # URL helpers for other Hanami integrations
     #
@@ -70,7 +70,7 @@ module Hanami2
     # @return [Hanami2::Router]
     #
     # @example Base usage
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   Hanami2::Router.new do
     #     get "/", to: ->(*) { [200, {}, ["OK"]] }
@@ -130,14 +130,14 @@ module Hanami2
     # @see #url
     #
     # @example Proc endpoint
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   router = Hanami2::Router.new do
     #     root to: ->(env) { [200, {}, ["Hello from Hanami!"]] }
     #   end
     #
     # @example Block endpoint
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   router = Hanami2::Router.new do
     #     root do
@@ -146,7 +146,7 @@ module Hanami2
     #   end
     #
     # @example URL helpers
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   router = Hanami2::Router.new(base_url: "https://hanamirb.org") do
     #     root do
@@ -177,14 +177,14 @@ module Hanami2
     # @see #url
     #
     # @example Proc endpoint
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   Hanami2::Router.new do
     #     get "/", to: ->(*) { [200, {}, ["OK"]] }
     #   end
     #
     # @example Block endpoint
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   Hanami2::Router.new do
     #     get "/" do
@@ -193,7 +193,7 @@ module Hanami2
     #   end
     #
     # @example Named route
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   router = Hanami2::Router.new do
     #     get "/", to: ->(*) { [200, {}, ["OK"]] }, as: :welcome
@@ -216,7 +216,7 @@ module Hanami2
     #   router.path(:new_backend_secret_cat) # => "/backend/admin/cats/new
     #
     # @example Constraints
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   Hanami2::Router.new do
     #     get "/users/:id", to: ->(*) { [200, {}, ["OK"]] }, id: /\d+/
@@ -408,7 +408,7 @@ module Hanami2
     # @see #path
     #
     # @example
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   router = Hanami2::Router.new do
     #     scope "v1" do
@@ -447,7 +447,7 @@ module Hanami2
     # @since 0.1.1
     #
     # @example
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   Hanami2::Router.new do
     #     mount MyRackApp.new, at: "/foo"
@@ -478,7 +478,7 @@ module Hanami2
     # @see #url
     #
     # @example
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   router = Hanami2::Router.new(base_url: "https://hanamirb.org") do
     #     get "/login", to: ->(*) { ... }, as: :login
@@ -508,7 +508,7 @@ module Hanami2
     # @see #path
     #
     # @example
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   router = Hanami2::Router.new(base_url: "https://hanamirb.org") do
     #     get "/login", to: ->(*) { ... }, as: :login
@@ -540,7 +540,7 @@ module Hanami2
     # @see Hanami2::Routing::RecognizedRoute
     #
     # @example Successful Path Recognition
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   router = Hanami2::Router.new do
     #     get "/books/:id", to: ->(*) { ... }, as: :book
@@ -552,7 +552,7 @@ module Hanami2
     #   route.params    # => {:id=>"23"}
     #
     # @example Successful Rack Env Recognition
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   router = Hanami2::Router.new do
     #     get "/books/:id", to: ->(*) { ... }, as: :book
@@ -564,7 +564,7 @@ module Hanami2
     #   route.params    # => {:id=>"23"}
     #
     # @example Successful Named Route Recognition
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   router = Hanami2::Router.new do
     #     get "/books/:id", to: ->(*) { ... }, as: :book
@@ -576,7 +576,7 @@ module Hanami2
     #   route.params    # => {:id=>"23"}
     #
     # @example Failing Recognition For Unknown Path
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   router = Hanami2::Router.new do
     #     get "/books/:id", to: ->(*) { ... }, as: :book
@@ -587,7 +587,7 @@ module Hanami2
     #   route.routable? # => false
     #
     # @example Failing Recognition For Path With Wrong HTTP Verb
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   router = Hanami2::Router.new do
     #     get "/books/:id", to: ->(*) { ... }, as: :book
@@ -598,7 +598,7 @@ module Hanami2
     #   route.routable? # => false
     #
     # @example Failing Recognition For Rack Env With Wrong HTTP Verb
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   router = Hanami2::Router.new do
     #     get "/books/:id", to: ->(*) { ... }, as: :book
@@ -609,7 +609,7 @@ module Hanami2
     #   route.routable? # => false
     #
     # @example Failing Recognition Named Route With Wrong Params
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   router = Hanami2::Router.new do
     #     get "/books/:id", to: ->(*) { ... }, as: :book
@@ -620,7 +620,7 @@ module Hanami2
     #   route.routable? # => false
     #
     # @example Failing Recognition Named Route With Wrong HTTP Verb
-    #   require "hanami/router"
+    #   require "hanami2/router"
     #
     #   router = Hanami2::Router.new do
     #     get "/books/:id", to: ->(*) { ... }, as: :book
@@ -631,7 +631,7 @@ module Hanami2
     #   route.routable? # => false
     #   route.params    # => {:id=>"1"}
     def recognize(env, params = {}, options = {})
-      require "hanami/router/recognized_route"
+      require "hanami2/router/recognized_route"
 
       env = env_for(env, params, options)
       endpoint, params = lookup(env)

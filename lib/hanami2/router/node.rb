@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami/router/leaf"
+require "hanami2/router/leaf"
 
 module Hanami2
   class Router

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami/router/params"
+require "hanami2/router/params"
 require "hanami/middleware/error"
 require_relative "../router/constants"
 

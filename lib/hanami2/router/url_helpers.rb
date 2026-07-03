@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami/router/errors"
+require "hanami2/router/errors"
 require "mustermann/error"
 require_relative "prefix"
 
