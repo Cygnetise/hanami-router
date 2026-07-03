@@ -2,7 +2,7 @@
 
 require "rack/head"
 
-RSpec.describe Hanami::Router do
+RSpec.describe Hanami2::Router do
   describe "HTTP: " do
     RSpec::Support::HTTP.mountable_verbs.each do |verb|
       context "##{verb}" do
@@ -116,7 +116,7 @@ RSpec.describe Hanami::Router do
 
             it "recognizes" do
               r      = response
-              router = Hanami::Router.new(base_url: "https://hanamirb.org") do
+              router = Hanami2::Router.new(base_url: "https://hanamirb.org") do
                 __send__ verb, "/custom_named_route", to: ->(_) { r }, as: :"#{verb}_custom_named_route"
               end
 

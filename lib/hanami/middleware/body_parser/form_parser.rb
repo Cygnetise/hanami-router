@@ -3,7 +3,7 @@
 require_relative "parser"
 require "rack/multipart"
 
-module Hanami
+module Hanami2
   module Middleware
     class BodyParser
       # @since 2.0.1
@@ -25,7 +25,7 @@ module Hanami
         #
         # @return [Hash] the parsed multipart body
         #
-        # @raise [Hanami::Middleware::BodyParser::BodyParsingError] when the body can't be parsed.
+        # @raise [Hanami2::Middleware::BodyParser::BodyParsingError] when the body can't be parsed.
         #
         # @since 2.0.1
         # @api private

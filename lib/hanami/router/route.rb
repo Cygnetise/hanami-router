@@ -3,7 +3,7 @@
 require "hanami/router/redirect"
 require "hanami/router/block"
 
-module Hanami
+module Hanami2
   class Router
     # A route from the router
     #

@@ -3,20 +3,20 @@
 require "rack/builder"
 require_relative "trie"
 
-module Hanami
+module Hanami2
   module Middleware
     # Hanami Rack middleware stack
 
     # @since 2.0.0
     # @api private
     class App
-      # @param router [Hanami::Router]
+      # @param router [Hanami2::Router]
       # @param mapping [Hash]
       #
       # @since 2.0.0
       # @api private
       def initialize(router, mapping)
-        @trie = Hanami::Middleware::Trie.new(router)
+        @trie = Hanami2::Middleware::Trie.new(router)
 
         mapping.each do |path, stack|
           builder = Rack::Builder.new

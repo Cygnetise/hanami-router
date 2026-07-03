@@ -2,7 +2,7 @@
 
 require "rack/head"
 
-RSpec.describe Hanami::Router do
+RSpec.describe Hanami2::Router do
   describe "#scope" do
     let(:app) { Rack::MockRequest.new(router) }
 

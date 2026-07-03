@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-RSpec.describe Hanami::Router do
+RSpec.describe Hanami2::Router do
   describe "#recognize" do
     let(:router) do
       configuration = Action::Configuration.new("recognize")
 
-      Hanami::Router.new do
+      Hanami2::Router.new do
         get "/",              to: ->(*) { [200, {}, ["HOME"]] },                                        as: :home
         get "/dashboard",     to: Web::Controllers::Dashboard::Index.new(configuration: configuration), as: :dashboard
         get "/rack_class",    to: RackMiddleware,                                                       as: :rack_class
@@ -150,7 +150,7 @@ RSpec.describe Hanami::Router do
         env   = Rack::MockRequest.env_for("/", method: :post)
         route = router.recognize(env)
 
-        expect { route.call(env) }.to raise_error(Hanami::Router::NotRoutableEndpointError, "Cannot find routable endpoint for: POST /")
+        expect { route.call(env) }.to raise_error(Hanami2::Router::NotRoutableEndpointError, "Cannot find routable endpoint for: POST /")
       end
     end
 
@@ -262,7 +262,7 @@ RSpec.describe Hanami::Router do
         env   = Rack::MockRequest.env_for("/", method: :post)
         route = router.recognize("/", {}, method: :post)
 
-        expect { route.call(env) }.to raise_error(Hanami::Router::NotRoutableEndpointError, "Cannot find routable endpoint for: POST /")
+        expect { route.call(env) }.to raise_error(Hanami2::Router::NotRoutableEndpointError, "Cannot find routable endpoint for: POST /")
       end
 
       it "raises error if #call is invoked for unknown path" do
@@ -276,7 +276,7 @@ RSpec.describe Hanami::Router do
         expect(route.path).to eq("/unknown")
         expect(route.params).to eq({})
 
-        expect { route.call({}) }.to raise_error(Hanami::Router::NotRoutableEndpointError, "Cannot find routable endpoint for: GET /unknown")
+        expect { route.call({}) }.to raise_error(Hanami2::Router::NotRoutableEndpointError, "Cannot find routable endpoint for: GET /unknown")
       end
     end
 
@@ -383,7 +383,7 @@ RSpec.describe Hanami::Router do
         env   = Rack::MockRequest.env_for("/", method: :post)
         route = router.recognize(:home, {}, method: :post)
 
-        expect { route.call(env) }.to raise_error(Hanami::Router::NotRoutableEndpointError, "Cannot find routable endpoint for: POST /")
+        expect { route.call(env) }.to raise_error(Hanami2::Router::NotRoutableEndpointError, "Cannot find routable endpoint for: POST /")
       end
     end
   end

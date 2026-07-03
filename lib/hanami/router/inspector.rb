@@ -2,7 +2,7 @@
 
 require "hanami/router/formatter/human_friendly"
 
-module Hanami
+module Hanami2
   class Router
     # Builds a representation of an array of routes according to a given formatter.
     #
@@ -11,7 +11,7 @@ module Hanami
     # @since 2.0.0
     # @api private
     class Inspector
-      # @param routes [Array<Hanami::Route>]
+      # @param routes [Array<Hanami2::Route>]
       # @param formatter [#call] routes formatter, taking routes as an argument and returning its
       #   own representation (typically a string). Defaults to {Formatter::HumanFriendly}.
       #

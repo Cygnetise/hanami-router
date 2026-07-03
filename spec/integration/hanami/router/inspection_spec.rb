@@ -4,7 +4,7 @@ require "hanami/router/inspector"
 
 RSpec.describe "Router: inspection" do
   let!(:router) do
-    Hanami::Router.new(inspector: inspector) do
+    Hanami2::Router.new(inspector: inspector) do
       root to: ->(*) {}
 
       scope "api" do
@@ -13,7 +13,7 @@ RSpec.describe "Router: inspection" do
     end
   end
 
-  let(:inspector) { Hanami::Router::Inspector.new }
+  let(:inspector) { Hanami2::Router::Inspector.new }
 
   it "inspects the routes" do
     expected = [

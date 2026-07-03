@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Hanami
+module Hanami2
   module Middleware
     class BodyParser
       # Body parser abstract class
@@ -19,7 +19,7 @@ module Hanami
         # @example
         #   require "hanami/middleware/body_parser"
         #
-        #   class XMLParser < Hanami::Middleware::BodyParser::Parser
+        #   class XMLParser < Hanami2::Middleware::BodyParser::Parser
         #     def self.mime_types
         #       ["application/xml", "text/xml"]
         #     end
@@ -38,7 +38,7 @@ module Hanami
         #
         # @return [Hash] the result of the parsing
         #
-        # @raise [Hanami::Middleware::BodyParser::BodyParsingError] the error
+        # @raise [Hanami2::Middleware::BodyParser::BodyParsingError] the error
         #   that must be raised if the parsing cannot be accomplished
         #
         # @abstract
@@ -47,12 +47,12 @@ module Hanami
         # @example
         #   require "hanami/middleware/body_parser"
         #
-        #   class XMLParser < Hanami::Middleware::BodyParser::Parser
+        #   class XMLParser < Hanami2::Middleware::BodyParser::Parser
         #     def parse(body)
         #       # XML parsing
         #       # ...
         #     rescue => exception
-        #       raise Hanami::Middleware::BodyParser::BodyParsingError.new(exception.message)
+        #       raise Hanami2::Middleware::BodyParser::BodyParsingError.new(exception.message)
         #     end
         #   end
         def parse(body, env = {}) # rubocop:disable Lint/UnusedMethodArgument

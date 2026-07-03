@@ -2,7 +2,7 @@
 
 require "hanami/middleware/trie"
 
-RSpec.describe Hanami::Middleware::Trie do
+RSpec.describe Hanami2::Middleware::Trie do
   subject { described_class.new(app) }
   let(:app) { -> (*) { [200, {"content-length" => "2"}, ["OK"]] } }
 

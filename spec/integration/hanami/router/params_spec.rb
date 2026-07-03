@@ -12,7 +12,7 @@ RSpec.describe "Params" do
   let(:router) do
     e = endpoint
 
-    Hanami::Router.new do
+    Hanami2::Router.new do
       get "/search",  to: e
       post "/submit", to: e
       patch "/user/:id/update", to: e
@@ -52,7 +52,7 @@ RSpec.describe "Params" do
       env = Rack::MockRequest.env_for("/submit", method: "POST", params: input)
       subject.call(env)
 
-      expected = Hanami::Router::Params.deep_symbolize(input)
+      expected = Hanami2::Router::Params.deep_symbolize(input)
       expect(env["router.params"]).to eq(expected)
     end
 
@@ -79,7 +79,7 @@ RSpec.describe "Params" do
       r = router
 
       Rack::Builder.new do
-        use Hanami::Middleware::BodyParser, :form
+        use Hanami2::Middleware::BodyParser, :form
         run r
       end
     end
@@ -102,7 +102,7 @@ RSpec.describe "Params" do
       r = router
 
       Rack::Builder.new do
-        use Hanami::Middleware::BodyParser, :json
+        use Hanami2::Middleware::BodyParser, :json
         run r
       end
     end

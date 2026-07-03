@@ -2,11 +2,11 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "hanami/router/version"
+require_relative "lib/hanami/router/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "hanami-router"
-  spec.version       = Hanami::Router::VERSION
+  spec.name          = "hanami2-router"
+  spec.version       = Hanami2::Router::VERSION
   spec.authors       = ["Luca Guidi"]
   spec.email         = ["me@lucaguidi.com"]
   spec.description   = "Rack compatible HTTP router for Ruby"
@@ -20,7 +20,8 @@ Gem::Specification.new do |spec|
   spec.metadata["rubygems_mfa_required"] = "true"
   spec.required_ruby_version = ">= 3.1"
 
-  spec.add_dependency "rack",               "~> 2.0"
+  spec.add_dependency "csv"
+#  spec.add_dependency "rack",               "~> 2.0"
   spec.add_dependency "mustermann",         "~> 3.0"
   spec.add_dependency "mustermann-contrib", "~> 3.0"
 

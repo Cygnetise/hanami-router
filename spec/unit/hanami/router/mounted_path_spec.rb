@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Hanami::Router::MountedPath do
+RSpec.describe Hanami2::Router::MountedPath do
   let(:prefix) { Mustermann.new("/api", type: :rails, version: "5.0") }
   let(:app) { double(:app) }
 

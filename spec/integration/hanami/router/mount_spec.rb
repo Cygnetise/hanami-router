@@ -2,9 +2,9 @@
 
 require "rack/head"
 
-RSpec.describe Hanami::Router do
+RSpec.describe Hanami2::Router do
   let(:router) do
-    Hanami::Router.new do
+    Hanami2::Router.new do
       mount Api::App.new,                  at: "/api"
       mount Backend::App,                  at: "/backend"
       mount ->(*) { [200, {"Content-Length" => "4"}, ["proc"]] }, at: "/proc"
@@ -61,7 +61,7 @@ RSpec.describe Hanami::Router do
 
   context "glob routes" do
     let(:router) do
-      Hanami::Router.new do
+      Hanami2::Router.new do
         mount Api::App.new, at: "/api"
 
         get "/*any", to: ->(*) { [200, {"Content-Length" => "4"}, ["home"]] }
@@ -75,7 +75,7 @@ RSpec.describe Hanami::Router do
 
     context "with more-specific glob before root-level mount" do
       let(:router) do
-        Hanami::Router.new do
+        Hanami2::Router.new do
           get "/home/*any", to: ->(*) { [200, {"Content-Length" => "4"}, ["home"]] }
 
           mount Api::App.new, at: "/"

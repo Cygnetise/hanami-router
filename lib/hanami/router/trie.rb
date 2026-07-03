@@ -2,7 +2,7 @@
 
 require "hanami/router/node"
 
-module Hanami
+module Hanami2
   class Router
     # Trie data structure to store routes
     #

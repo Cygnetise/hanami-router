@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe Hanami::Router do
+RSpec.describe Hanami2::Router do
   before do
-    @router = Hanami::Router.new { get "/", to: ->(env) {} }
+    @router = Hanami2::Router.new { get "/", to: ->(env) {} }
     @app    = Rack::MockRequest.new(@router)
   end
 

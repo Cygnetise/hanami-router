@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Hanami::Router do
+RSpec.describe Hanami2::Router do
   describe "#initialize" do
     let(:app) { Rack::MockRequest.new(router) }
     let(:endpoint) { ->(_) { [200, {}, [""]] } }
@@ -17,20 +17,20 @@ RSpec.describe Hanami::Router do
       end
     end
 
-    it "returns instance of Hanami::Router" do
-      router = Hanami::Router.new
-      expect(router).to be_instance_of(Hanami::Router)
+    it "returns instance of Hanami2::Router" do
+      router = Hanami2::Router.new
+      expect(router).to be_instance_of(Hanami2::Router)
     end
 
-    it "returns instance of Hanami::Router with empty block" do
-      router = Hanami::Router.new {}
-      expect(router).to be_instance_of(Hanami::Router)
+    it "returns instance of Hanami2::Router with empty block" do
+      router = Hanami2::Router.new {}
+      expect(router).to be_instance_of(Hanami2::Router)
     end
 
-    # FIXME: check if Hanami::Router.define is still needed
-    xit "evaluates routes passed from Hanami::Router.define" do
-      routes = Hanami::Router.define { post "/domains", to: ->(_env) { [201, {}, ["Domain Created"]] } }
-      router = Hanami::Router.new(&routes)
+    # FIXME: check if Hanami2::Router.define is still needed
+    xit "evaluates routes passed from Hanami2::Router.define" do
+      routes = Hanami2::Router.define { post "/domains", to: ->(_env) { [201, {}, ["Domain Created"]] } }
+      router = Hanami2::Router.new(&routes)
 
       app      = Rack::MockRequest.new(router)
       response = app.post("/domains", lint: true)
@@ -39,24 +39,24 @@ RSpec.describe Hanami::Router do
       expect(response.body).to eq("Domain Created")
     end
 
-    it "returns instance of Hanami::Router" do
-      expect(router).to be_instance_of(Hanami::Router)
+    it "returns instance of Hanami2::Router" do
+      expect(router).to be_instance_of(Hanami2::Router)
     end
 
     it "sets options" do
-      router = Hanami::Router.new(base_url: "https://hanami.test") do
+      router = Hanami2::Router.new(base_url: "https://hanami.test") do
         root to: ->(*) {}
       end
 
       expect(router.url(:root)).to eq(URI("https://hanami.test"))
     end
 
-    # FIXME: verify if Hanami::Router#defined? is still needed
+    # FIXME: verify if Hanami2::Router#defined? is still needed
     xit "checks if there are defined routes" do
-      router = Hanami::Router.new
+      router = Hanami2::Router.new
       expect(router.defined?).to be false
 
-      router = Hanami::Router.new { get "/", to: ->(env) {} }
+      router = Hanami2::Router.new { get "/", to: ->(env) {} }
       expect(router.defined?).to be true
     end
 

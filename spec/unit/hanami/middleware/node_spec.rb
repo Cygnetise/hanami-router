@@ -2,7 +2,7 @@
 
 require "hanami/middleware/node"
 
-RSpec.describe Hanami::Middleware::Node do
+RSpec.describe Hanami2::Middleware::Node do
   describe "#initialize" do
     it "returns a #{described_class} instance" do
       expect(subject).to be_kind_of(described_class)

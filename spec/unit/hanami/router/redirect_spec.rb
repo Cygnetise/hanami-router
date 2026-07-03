@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-RSpec.describe Hanami::Router do
+RSpec.describe Hanami2::Router do
   describe "#redirect" do
     it "recognizes string endpoint" do
       endpoint = ->(_env) { [200, {}, ["Redirect destination!"]] }
-      router   = Hanami::Router.new do
+      router   = Hanami2::Router.new do
         get "/redirect_destination", to: endpoint, as: :destination
         redirect "/redirect", to: "/redirect_destination"
       end
@@ -18,7 +18,7 @@ RSpec.describe Hanami::Router do
 
     it "recognizes string endpoint with custom http code" do
       endpoint = ->(_env) { [200, {}, ["Redirect destination!"]] }
-      router   = Hanami::Router.new do
+      router   = Hanami2::Router.new do
         get "/redirect_destination", to: endpoint
         redirect "/redirect", to: "/redirect_destination", code: 302
       end

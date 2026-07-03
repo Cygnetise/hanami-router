@@ -2,7 +2,7 @@
 
 RSpec.xdescribe "Inspector nested resources" do
   before do
-    @router = Hanami::Router.new(namespace: Nested::Controllers) do
+    @router = Hanami2::Router.new(namespace: Nested::Controllers) do
       resources :users do
         resources :posts
         resource :avatar
@@ -255,7 +255,7 @@ RSpec.xdescribe "Inspector nested resources" do
 
   describe "overriding controller without prefix" do
     before do
-      @router = Hanami::Router.new do
+      @router = Hanami2::Router.new do
         resources :users do
           resources :posts do
             resources :comments, controller: "posts"

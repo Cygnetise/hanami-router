@@ -2,7 +2,7 @@
 
 require_relative "errors"
 
-module Hanami
+module Hanami2
   module Middleware
     # HTTP request body parser
     class BodyParser
@@ -12,13 +12,13 @@ module Hanami
         # Instantiate a new body parser instance and load its parsers
         #
         # @example
-        #   Hanami::Middleware::BodyParser.new(->(env) { [200, {}, "app"] }, :json)
+        #   Hanami2::Middleware::BodyParser.new(->(env) { [200, {}, "app"] }, :json)
         #
-        #   Hanami::Middleware::BodyParser.new(
+        #   Hanami2::Middleware::BodyParser.new(
         #     ->(env) { [200, {}, "app"] }, [json: "application/json+scim"]
         #   )
         #
-        #   Hanami::Middleware::BodyParser.new(
+        #   Hanami2::Middleware::BodyParser.new(
         #     ->(env) { [200, {}, "app"] }, [json: ["application/json+scim", "application/ld+json"]]
         #   )
         #
@@ -121,7 +121,7 @@ module Hanami
         # @api private
         # @since 1.3.0
         def load_parser!(class_name)
-          Hanami::Middleware::BodyParser.const_get(class_name, false)
+          Hanami2::Middleware::BodyParser.const_get(class_name, false)
         end
       end
     end

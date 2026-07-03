@@ -4,7 +4,7 @@ require "hanami/router/params"
 require "hanami/middleware/error"
 require_relative "../router/constants"
 
-module Hanami
+module Hanami2
   module Middleware
     # @since 1.3.0
     # @api private

@@ -3,7 +3,7 @@
 require "json"
 require_relative "parser"
 
-module Hanami
+module Hanami2
   module Middleware
     class BodyParser
       # @since 1.3.0
@@ -21,7 +21,7 @@ module Hanami
         #
         # @return [Hash] the parsed json
         #
-        # @raise [Hanami::Middleware::BodyParser::BodyParsingError] when the body can't be parsed.
+        # @raise [Hanami2::Middleware::BodyParser::BodyParsingError] when the body can't be parsed.
         #
         # @since 1.3.0
         # @api private

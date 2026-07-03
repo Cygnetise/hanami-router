@@ -2,12 +2,12 @@
 
 require "hanami/router/inspector"
 
-RSpec.describe Hanami::Router::Inspector do
+RSpec.describe Hanami2::Router::Inspector do
   describe "#add_route" do
     it "adds a route to the inspector" do
       inspector = described_class.new
 
-      inspector.add_route(Hanami::Router::Route.new(http_method: "GET", path: "/", to: "home#index"))
+      inspector.add_route(Hanami2::Router::Route.new(http_method: "GET", path: "/", to: "home#index"))
 
       expect(inspector.call).to include("home#index")
     end
@@ -16,8 +16,8 @@ RSpec.describe Hanami::Router::Inspector do
   describe "#call" do
     it "forwards to the formatter with the given routes" do
       routes = [
-        Hanami::Router::Route.new(http_method: "GET", path: "/", to: "home#index", as: :root, constraints: {}),
-        Hanami::Router::Route.new(http_method: "GET", path: "/about", to: "home#about", as: :about, constraints: {})
+        Hanami2::Router::Route.new(http_method: "GET", path: "/", to: "home#index", as: :root, constraints: {}),
+        Hanami2::Router::Route.new(http_method: "GET", path: "/about", to: "home#about", as: :about, constraints: {})
       ]
       formatter = ->(rs) { rs.map(&:path).join("+") }
 
@@ -28,8 +28,8 @@ RSpec.describe Hanami::Router::Inspector do
 
     it "forwards arguments to the formatter" do
       routes = [
-        Hanami::Router::Route.new(http_method: "GET", path: "/", to: "home#index", as: :root, constraints: {}),
-        Hanami::Router::Route.new(http_method: "GET", path: "/about", to: "home#about", as: :about, constraints: {})
+        Hanami2::Router::Route.new(http_method: "GET", path: "/", to: "home#index", as: :root, constraints: {}),
+        Hanami2::Router::Route.new(http_method: "GET", path: "/about", to: "home#about", as: :about, constraints: {})
       ]
       formatter = ->(rs, join_with:) { rs.map(&:path).join(join_with) }
       inspector = described_class.new(routes: routes, formatter: formatter)
@@ -39,12 +39,12 @@ RSpec.describe Hanami::Router::Inspector do
 
     it "defaults to the human friendly formatter" do
       routes = [
-        Hanami::Router::Route.new(http_method: "GET", path: "/", to: "home#index", as: :root, constraints: {})
+        Hanami2::Router::Route.new(http_method: "GET", path: "/", to: "home#index", as: :root, constraints: {})
       ]
 
       inspector = described_class.new(routes: routes)
 
-      expect(inspector.call).to eq(Hanami::Router::Formatter::HumanFriendly.new.call(routes))
+      expect(inspector.call).to eq(Hanami2::Router::Formatter::HumanFriendly.new.call(routes))
     end
   end
 end
