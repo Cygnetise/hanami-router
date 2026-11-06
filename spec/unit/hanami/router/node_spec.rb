@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "hanami/router/node"
-require "hanami/router/leaf"
+require "hanami2/router/node"
+require "hanami2/router/leaf"
 
 RSpec.describe Hanami2::Router::Node do
   describe "#initialize" do

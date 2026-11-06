@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami/router/formatter/human_friendly"
+require "hanami2/router/formatter/human_friendly"
 
 RSpec.describe Hanami2::Router::Formatter::HumanFriendly do
   describe "#call" do

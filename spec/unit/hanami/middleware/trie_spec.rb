@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami/middleware/trie"
+require "hanami2/middleware/trie"
 
 RSpec.describe Hanami2::Middleware::Trie do
   subject { described_class.new(app) }

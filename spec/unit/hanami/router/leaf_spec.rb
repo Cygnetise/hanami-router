@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami/router/leaf"
+require "hanami2/router/leaf"
 
 RSpec.describe Hanami2::Router::Leaf do
   let(:subject)     { described_class.new(route, to, constraints) }

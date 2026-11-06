@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami/router/formatter/csv"
+require "hanami2/router/formatter/csv"
 
 RSpec.describe Hanami2::Router::Formatter::CSV do
   let(:headers) { described_class::HEADERS.join(",") }

@@ -3,7 +3,7 @@
 $LOAD_PATH.unshift "lib"
 require "hanami/utils"
 require "hanami/devtools/unit"
-require "hanami/router"
+require "hanami2/router"
 require "rack"
 
 Rack::MockResponse.class_eval do

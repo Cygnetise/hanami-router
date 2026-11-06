@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "rexml/document"
-require "hanami/middleware/body_parser"
+require "hanami2/middleware/body_parser"
 
 require "securerandom"
 

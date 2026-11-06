@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami/router/inspector"
+require "hanami2/router/inspector"
 
 RSpec.describe "Router: inspection" do
   let!(:router) do

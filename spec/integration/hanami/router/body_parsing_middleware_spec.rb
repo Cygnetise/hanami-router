@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami/middleware/body_parser"
+require "hanami2/middleware/body_parser"
 
 RSpec.describe "Body parsing" do
   before do

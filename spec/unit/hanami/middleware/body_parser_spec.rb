@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "hanami/middleware/body_parser"
-require "hanami/middleware/body_parser/json_parser"
+require "hanami2/middleware/body_parser"
+require "hanami2/middleware/body_parser/json_parser"
 
 RSpec.describe Hanami2::Middleware::BodyParser do
   describe ".build" do

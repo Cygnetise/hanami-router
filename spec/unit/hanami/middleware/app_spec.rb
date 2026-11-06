@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami/middleware/app"
+require "hanami2/middleware/app"
 require "rack/mock"
 
 RSpec.describe Hanami2::Middleware::App do

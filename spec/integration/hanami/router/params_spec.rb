@@ -4,7 +4,7 @@ require "json"
 require "pathname"
 require "rack/builder"
 require "rack/multipart"
-require "hanami/middleware/body_parser"
+require "hanami2/middleware/body_parser"
 
 RSpec.describe "Params" do
   subject { router }

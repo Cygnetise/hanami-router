@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami/router/trie"
+require "hanami2/router/trie"
 
 RSpec.describe Hanami2::Router::Trie do
   describe "#initialize" do

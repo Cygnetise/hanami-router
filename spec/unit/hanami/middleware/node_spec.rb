@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami/middleware/node"
+require "hanami2/middleware/node"
 
 RSpec.describe Hanami2::Middleware::Node do
   describe "#initialize" do

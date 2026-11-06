@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami/middleware/body_parser"
+require "hanami2/middleware/body_parser"
 require "rack/mock"
 
 RSpec.describe Hanami2::Middleware::BodyParser do
