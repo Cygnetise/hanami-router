@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "hanami2/router/params"
-require "hanami/middleware/error"
+require "hanami2/middleware/error"
 require_relative "../router/constants"
 
 module Hanami2

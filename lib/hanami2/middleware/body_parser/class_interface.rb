@@ -99,7 +99,7 @@ module Hanami2
           parser = nil
 
           begin
-            require "hanami/middleware/body_parser/#{parser_name}_parser"
+            require "hanami2/middleware/body_parser/#{parser_name}_parser"
           rescue LoadError
           end
 
